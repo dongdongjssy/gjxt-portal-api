@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gjxt.portal.api.mapper.GjxtAnnouncementMediaMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="gjxt.portal.api.entity.GjxtAnnouncementMedia">
+        <id column="id" property="id"/>
+        <result column="announcement_id" property="announcementId"/>
+        <result column="media_id" property="mediaId"/>
+        <association property="media" column="media_id" javaType="GjxtMultimedia" resultMap="MediaResult"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <resultMap id="MediaResult" type="gjxt.portal.api.entity.GjxtMultimedia">
+        <id column="b_id" property="id"/>
+        <result column="b_media_title" property="mediaTitle"/>
+        <result column="b_media_src" property="mediaSrc"/>
+        <result column="b_media_type" property="mediaType"/>
+        <result column="b_status" property="status"/>
+        <result column="b_create_by" property="createBy"/>
+        <result column="b_create_time" property="createTime"/>
+        <result column="b_modify_by" property="modifyBy"/>
+        <result column="b_modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="selectGjxtAnnouncementMediaVo">
+        select tb.id,
+               tb.announcement_id,
+               tb.media_id,
+               b.id          as b_id,
+               b.media_title as b_media_title,
+               b.media_src   as b_media_src,
+               b.media_type  as b_media_type,
+               b.status      as b_status,
+               b.create_by   as b_create_by,
+               b.create_time as b_create_time,
+               b.modify_by   as b_modify_by,
+               b.modify_time as b_modify_time
+        from gjxt_announcement_media tb
+                 left join gjxt_multimedia b on tb.media_id = b.id
+    </sql>
+
+    <select id="selectAnnouncementMediaByAnnouncementId" resultMap="BaseResultMap" parameterType="Long">
+        <include refid="selectGjxtAnnouncementMediaVo"/>
+        where tb.announcement_id = #{id}
+    </select>
+
+</mapper>

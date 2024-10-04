@@ -1,0 +1,4743 @@
+{
+	"info": {
+		"_postman_id": "ef06228b-addf-47c1-b6f5-4d06465339dc",
+		"name": "奖学金信息网API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1583953"
+	},
+	"item": [
+		{
+			"name": "登录注册",
+			"item": [
+				{
+					"name": "注册",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"17712345678\",\r\n    \"password\": \"123456\",\r\n    \"idNumber\": \"110123456789000001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/auth/sign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"auth",
+								"sign"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - 参数错误",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"123456\",\r\n    \"idNumber\": \"110123456789000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/login/sign",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"login",
+										"sign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 16:09:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"msg\": \"参数或者语法不对\",\n    \"data\": \"手机号、密码和身份证号都不能为空\"\n}"
+						},
+						{
+							"name": "400 - 用户已存在",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"18812345678\",\r\n    \"password\": \"123456\",\r\n    \"idNumber\": \"110123456789000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/login/sign",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"login",
+										"sign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 16:14:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"msg\": \"参数或者语法不对\",\n    \"data\": \"用户已存在（手机号和身份证号不能重复注册）\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"17712345678\",\r\n    \"password\": \"123456\",\r\n    \"idNumber\": \"110123456789000001\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/login/sign",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"login",
+										"sign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 16:15:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"msg\": \"成功\",\n    \"data\": 4\n}"
+						}
+					]
+				},
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"17712345678\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"17712345678\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 16:21:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkRFRiJ9.eNocjVsKwjAQAO-y3wnksckmuYqI1GYLEUHJoyji3U39nRmYD7RxhQSaSBuLzlMAAfVxZ0ins4DRuF5KhoQCSmuzbLyOWvp7ip3rjPn1hKR9QEOOlJ3d0v_AOm_iAW69HAvclM2GZLBkJHrOMm5qlUqHgEueZ47w_QEAAP__.OrCCXrMrWQKRAgdFhM7qWc0D1fePBO8tP1dtUIvq8Nk\",\n        \"refreshToken\": \"Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkRFRiJ9.eNocy90KgjAYgOF7-Y4d7H-680VQJFhnKtLmhEWgbBpFdO-tTh_e9w1ps6CBKEUo40KqEgqI892DbvsCtuTjEEbQvIDk5iUztB009dEMjdk15rwfLvXBnDro8xhSykHybothfeX34WNm_1xAE1lyqoTCLHfX9Q9MSFr94LaGPJaUSKysQqN1BHHMKLoKb5GrJjlhS63AFD5fAAAA__8.aYOFoiIE3-J_SxN0G0lmmy5ARd7d8a-_UlwZoNRDJtg\",\n        \"issueDate\": \"2023-05-09 00:21:43\",\n        \"expiration\": 712800,\n        \"userDetail\": {\n            \"user\": {\n                \"id\": 4,\n                \"phone\": \"17712345678\",\n                \"password\": \"$2a$10$s2wtGq4Dvwx/GUimC9MgFeU/xGpigylnySdghte86dw1kMygrO5zK\",\n                \"username\": \"17712345678\",\n                \"status\": 0,\n                \"idNumber\": \"110123456789000001\",\n                \"roles\": [],\n                \"roleName\": null,\n                \"smsCode\": null\n            },\n            \"expired\": false,\n            \"expiration\": null,\n            \"accountNonExpired\": true,\n            \"accountNonLocked\": true,\n            \"credentialsNonExpired\": true,\n            \"id\": 4,\n            \"enabled\": true,\n            \"password\": \"$2a$10$s2wtGq4Dvwx/GUimC9MgFeU/xGpigylnySdghte86dw1kMygrO5zK\",\n            \"username\": \"17712345678\"\n        }\n    }\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"17712345678\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 16:22:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 401,\n    \"msg\": \"登录名或密码错误\",\n    \"data\": \"Bad credentials\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "首页轮播图",
+			"item": [
+				{
+					"name": "获取轮播图列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "示例",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 04:03:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 2,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-06T22:39:23\",\n            \"modifyBy\": 1,\n            \"modifyTime\": \"2023-05-06T22:39:27\",\n            \"id\": 1,\n            \"carouselOrder\": 1,\n            \"source\": \"aaa\",\n            \"description\": \"aaa\",\n            \"status\": false\n        },\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-06T22:39:45\",\n            \"modifyBy\": 1,\n            \"modifyTime\": \"2023-05-06T22:39:47\",\n            \"id\": 2,\n            \"carouselOrder\": 2,\n            \"source\": \"bbb\",\n            \"description\": \"bbb\",\n            \"status\": false\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取轮播图",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 04:02:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"createBy\": 1,\n        \"createTime\": \"2023-05-06T22:39:23\",\n        \"modifyBy\": 1,\n        \"modifyTime\": \"2023-05-06T22:39:27\",\n        \"id\": 1,\n        \"carouselOrder\": 1,\n        \"source\": \"aaa\",\n        \"description\": \"aaa\",\n        \"status\": false\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 04:04:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "添加轮播图",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-06T22:39:23\",\r\n    \"carouselOrder\": 5,\r\n    \"source\": \"ccc\",\r\n    \"description\": \"ccc\",\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 - 顺序冲突",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-06T22:39:23\",\r\n    \"carouselOrder\": 3,\r\n    \"source\": \"ccc\",\r\n    \"description\": \"ccc\",\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 16:24:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"指定的轮播图顺序已经存在，请重新设置。\",\n    \"code\": 400,\n    \"status\": false\n}"
+						},
+						{
+							"name": "400 - 参数错误",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createTime\": \"2023-05-06T22:39:23\",\r\n    \"carouselOrder\": 3,\r\n    \"source\": \"ccc\",\r\n    \"description\": \"ccc\",\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 16:25:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"发布者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-06T22:39:23\",\r\n    \"carouselOrder\": 3,\r\n    \"source\": \"ccc\",\r\n    \"description\": \"ccc\",\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 16:25:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id删除轮播图",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/remove/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"remove",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/remove/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"remove",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:21:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/remove/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"remove",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:22:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "删除多个轮播图",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[3,4,5]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"remove"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[3,4,5]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:23:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[3,4,5]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:24:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "更新轮播图",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-06T22:39:27\",\r\n    \"id\": 1,\r\n    \"carouselOrder\": 1,\r\n    \"source\": \"aaa\",\r\n    \"description\": \"aaa\",\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/carousel/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"carousel",
+								"edit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-06T22:39:27\",\r\n    \"id\": 1,\r\n    \"carouselOrder\": 1,\r\n    \"source\": \"aaa\",\r\n    \"description\": \"aaa\",\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:45:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modifyTime\": \"2023-05-06T22:39:27\",\r\n    \"id\": 1,\r\n    \"carouselOrder\": 1,\r\n    \"source\": \"aaa\",\r\n    \"description\": \"aaa\",\r\n    \"status\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/carousel/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"carousel",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 17:45:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"更新者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "| **attribute** | **description** |\n| --- | --- |\n| carousel_order | 轮播图序号 |\n| source | 轮播图路径  <br>可以通过该路径下载图片 |\n| description | 轮播图说明文字 |\n| status | 状态  <br>0：正常  <br>1：被删除 |"
+		},
+		{
+			"name": "获奖心声",
+			"item": [
+				{
+					"name": "获取留言板列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"publish_status\": 1,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "示例",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"publish_status\": 1,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 14:21:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 2,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"content\": \"bbbbbbbbbb\",\n            \"location\": \"南京\",\n            \"publishMode\": 0,\n            \"publishStatus\": 1,\n            \"createBy\": 2,\n            \"realName\": \"张三\",\n            \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n            \"createTime\": \"2023-04-28T22:17:39\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-04-29T22:17:46\"\n        },\n        {\n            \"id\": 1,\n            \"content\": \"aaaaaaaaaa\",\n            \"location\": \"上海\",\n            \"publishMode\": 0,\n            \"publishStatus\": 1,\n            \"createBy\": 2,\n            \"realName\": \"张三\",\n            \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n            \"createTime\": \"2023-04-23T22:14:49\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-04-23T22:14:55\"\n        }\n    ],\n    \"status\": true\n}"
+						},
+						{
+							"name": "获取我的留言",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"create_by\": 2,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 14:21:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 2,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"content\": \"bbbbbbbbbb\",\n            \"location\": \"南京\",\n            \"publishMode\": 0,\n            \"publishStatus\": 1,\n            \"createBy\": 2,\n            \"realName\": \"张三\",\n            \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n            \"createTime\": \"2023-04-28T22:17:39\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-04-29T22:17:46\"\n        },\n        {\n            \"id\": 1,\n            \"content\": \"aaaaaaaaaa\",\n            \"location\": \"上海\",\n            \"publishMode\": 0,\n            \"publishStatus\": 1,\n            \"createBy\": 2,\n            \"realName\": \"张三\",\n            \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n            \"createTime\": \"2023-04-23T22:14:49\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-04-23T22:14:55\"\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取留言板",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/getById/{messageBoardId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"getById",
+								"{messageBoardId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/getById/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"getById",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 14:25:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"content\": \"aaaaaaaaaa\",\n        \"location\": \"上海\",\n        \"publishMode\": 0,\n        \"publishStatus\": 1,\n        \"createBy\": 2,\n        \"realName\": \"张三\",\n        \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n        \"createTime\": \"2023-04-23T22:14:49\",\n        \"modifyBy\": 2,\n        \"modifyTime\": \"2023-04-23T22:14:55\"\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 23:24:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "添加留言",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1,\r\n    \"createBy\": 2,\r\n    \"createTime\": \"2023-04-30T22:14:49\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1,\r\n    \"createBy\": 2,\r\n    \"createTime\": \"2023-04-30T22:14:49\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 14:26:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 23:35:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"createTime发布时间不能为空,createBy发布者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id删除留言",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/remove/{messageBoardId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"remove",
+								"{messageBoardId}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/remove/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"remove",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 14:28:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/remove/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"remove",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 17:39:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "删除多个留言",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[6,7,8]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"remove"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[6,7,8]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 17:41:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[6,7,8]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 May 2023 17:42:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "更新留言",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1,\r\n    \"modifyBy\": 2,\r\n    \"modifyTime\": \"2023-04-30T22:14:55\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/messageBoard/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"messageBoard",
+								"edit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1,\r\n    \"modifyTime\": \"2023-04-30T22:14:55\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 01:08:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"更新者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"content\": \"abcabcabcabc\",\r\n    \"location\": \"上海\",\r\n    \"publishMode\": 0,\r\n    \"publishStatus\": 1,\r\n    \"modifyBy\": 2,\r\n    \"modifyTime\": \"2023-04-30T22:14:55\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/messageBoard/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"messageBoard",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 01:08:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| content | 内容 |\n| location | 发布的位置 |\n| publish_mode | 发布方式  <br>0: 实名  <br>1: 匿名 |\n| publish_status | 发布状态  <br>0：待审核  <br>1：通过  <br>2：驳回  <br>3：回收站 |\n\nEndFragment"
+		},
+		{
+			"name": "常见问题",
+			"item": [
+				{
+					"name": "获取常见问题列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": 1,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "示例",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\": 1,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:08:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 3,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-01T21:38:12\",\n            \"modifyBy\": null,\n            \"modifyTime\": null,\n            \"id\": 1,\n            \"question\": \"ccc\",\n            \"answer\": \"ddd\",\n            \"category\": 1,\n            \"status\": 0\n        },\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-01T21:38:12\",\n            \"modifyBy\": null,\n            \"modifyTime\": null,\n            \"id\": 2,\n            \"question\": \"ccc\",\n            \"answer\": \"ddd\",\n            \"category\": 1,\n            \"status\": 0\n        },\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-01T21:38:12\",\n            \"modifyBy\": null,\n            \"modifyTime\": null,\n            \"id\": 3,\n            \"question\": \"ccc\",\n            \"answer\": \"ddd\",\n            \"category\": 1,\n            \"status\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取常见问题",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/getById/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/getById/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"getById",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:13:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "添加常见问题",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:06:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:20:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"发布者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id删除常见问题",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/remove/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"remove",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/remove/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"remove",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:15:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/remove/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"remove",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:16:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "删除多个常见问题",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[1,2,3]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"remove"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[1,2,3]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:17:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[1,2,3]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:17:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "更新常见问题",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/mostAskedQuestions/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"mostAskedQuestions",
+								"edit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:19:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 4,\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T21:38:12\",\r\n    \"question\": \"ccc\",\r\n    \"answer\": \"ddd\",\r\n    \"category\": 1,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/mostAskedQuestions/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"mostAskedQuestions",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:21:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| question | 问题 |\n| answer | 解答 |\n| category | 类别  <br>0: 中职  <br>1: 本专科  <br>2: 研究生 |\n| status | 状态  <br>0：正常  <br>1：被删除 |\n\nEndFragment"
+		},
+		{
+			"name": "政策解读",
+			"item": [
+				{
+					"name": "获取政策解读列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "示例",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:41:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 1,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 1,\n            \"createTime\": \"2023-05-01T22:41:01\",\n            \"modifyBy\": 1,\n            \"modifyTime\": \"2023-05-01T22:41:04\",\n            \"id\": 1,\n            \"policy\": \"aaa\",\n            \"explanation\": \"bbb\",\n            \"category\": 0,\n            \"status\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取政策解读",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:46:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"createBy\": 1,\n        \"createTime\": \"2023-05-01T22:41:01\",\n        \"modifyBy\": 1,\n        \"modifyTime\": \"2023-05-01T22:41:04\",\n        \"id\": 1,\n        \"policy\": \"aaa\",\n        \"explanation\": \"bbb\",\n        \"category\": 0,\n        \"status\": 0\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:48:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "添加政策解读",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-01T22:41:01\",\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createBy\": 1,\r\n    \"createTime\": \"2023-05-01T22:41:01\",\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:43:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createTime\": \"2023-05-01T22:41:01\",\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:46:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"发布者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id删除政策解读",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/remove/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"remove",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/remove/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"remove",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:48:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/remove/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"remove",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:48:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "删除多个政策解读",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[1,2,3]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"remove"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[1,2,3]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:52:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[1,2,3]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"remove"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:52:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "更新政策解读",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T22:41:04\",\r\n    \"id\": 2,\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/policyExplanation/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyExplanation",
+								"edit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T22:41:04\",\r\n    \"id\": 2,\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:51:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"status\": true\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modifyTime\": \"2023-05-01T22:41:04\",\r\n    \"id\": 2,\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:51:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"更新者用户ID不能为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						},
+						{
+							"name": "500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"modifyBy\": 1,\r\n    \"modifyTime\": \"2023-05-01T22:41:04\",\r\n    \"id\": 1,\r\n    \"policy\": \"aaa\",\r\n    \"explanation\": \"bbb\",\r\n    \"category\": 0,\r\n    \"status\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyExplanation/edit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyExplanation",
+										"edit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 02:51:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"失败\",\n    \"code\": 500,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragmentEndFragmentStartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| policy | 政策 |\n| explanation | 解读 |\n| category | 类别  <br>0: 中职  <br>1: 本专科  <br>2: 研究生 |\n| status | 状态  <br>0：正常  <br>1：被删除 |\n\nEndFragment"
+		},
+		{
+			"name": "学生风采",
+			"item": [
+				{
+					"name": "获取学生列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"id\",\r\n                \"asc\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/clientUser/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"clientUser",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"id\",\r\n                \"asc\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/clientUser/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"clientUser",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 14:18:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 1,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 2,\n            \"username\": \"18222938243\",\n            \"status\": 0,\n            \"userType\": 1,\n            \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n            \"realName\": \"张三\",\n            \"educationLevel\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取学生信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/clientUser/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"clientUser",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/clientUser/getById/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"clientUser",
+										"getById",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 19:03:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"id\": 2,\n        \"username\": \"18222938243\",\n        \"phone\": null,\n        \"status\": false,\n        \"password\": null,\n        \"passwordResetDate\": null,\n        \"userType\": true,\n        \"avatar\": \"jhl3kfo6on83n53ln2359fq.jpg\",\n        \"idNumber\": null,\n        \"realName\": \"张三\",\n        \"educationLevel\": false,\n        \"resume\": null,\n        \"schoolName\": null,\n        \"facultyName\": null,\n        \"profession\": null,\n        \"studentId\": null,\n        \"gender\": null,\n        \"nationality\": null,\n        \"admissionTime\": null\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/clientUser/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"clientUser",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 May 2023 19:05:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| username | 用户名 |\n| user_type | 用户类型  <br>0：管理员  <br>1：普通用户 |\n| avatar | 头像路径 |\n| real_name | 真实姓名 |\n| education_level | 教育级别  <br>0: 中职  <br>1: 本专科  <br>2: 研究生 |\n| resume | 个人简介 |\n| status | 状态  <br>0：正常  <br>1：被删除 |\n\nEndFragment"
+		},
+		{
+			"name": "工作动态",
+			"item": [
+				{
+					"name": "获取工作动态列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/workUpdate/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"workUpdate",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/workUpdate/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"workUpdate",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 02:19:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 2,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 2,\n            \"createTime\": \"2023-05-07T22:17:36\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-05-07T22:17:39\",\n            \"id\": 2,\n            \"title\": \"bbb\",\n            \"status\": 0\n        },\n        {\n            \"createBy\": 2,\n            \"createTime\": \"2023-05-07T22:17:25\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-05-07T22:17:28\",\n            \"id\": 1,\n            \"title\": \"aaa\",\n            \"status\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取工作动态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/workUpdate/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"workUpdate",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/workUpdate/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"workUpdate",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 03:16:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"createBy\": 2,\n        \"createTime\": \"2023-05-07T22:17:25\",\n        \"modifyBy\": 2,\n        \"modifyTime\": \"2023-05-07T22:17:28\",\n        \"id\": 1,\n        \"title\": \"aaa\",\n        \"content\": \"aaa\",\n        \"status\": 0,\n        \"medias\": [\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:03\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:07\",\n                \"id\": 1,\n                \"mediaTitle\": \"aaa\",\n                \"mediaSrc\": \"aaa.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            },\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:16\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:19\",\n                \"id\": 2,\n                \"mediaTitle\": \"bbb\",\n                \"mediaSrc\": \"bbb.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            }\n        ]\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/workUpdate/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"workUpdate",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 03:17:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| title | 标题 |\n| content | 内容 |\n| status | 状态  <br>0：正常  <br>1：被删除 |\n\nEndFragment"
+		},
+		{
+			"name": "政策文件",
+			"item": [
+				{
+					"name": "获取政策文件列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/policyFile/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyFile",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/policyFile/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyFile",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 03:46:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 1,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 2,\n            \"createTime\": \"2023-05-07T23:36:20\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-05-07T23:36:23\",\n            \"id\": 1,\n            \"title\": \"aaa\",\n            \"status\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取政策文件",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/policyFile/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"policyFile",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyFile/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyFile",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 03:46:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"createBy\": 2,\n        \"createTime\": \"2023-05-07T23:36:20\",\n        \"modifyBy\": 2,\n        \"modifyTime\": \"2023-05-07T23:36:23\",\n        \"id\": 1,\n        \"title\": \"aaa\",\n        \"content\": \"aaa\",\n        \"educationLevel\": 0,\n        \"status\": 0,\n        \"medias\": [\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:03\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:07\",\n                \"id\": 1,\n                \"mediaTitle\": \"aaa\",\n                \"mediaSrc\": \"aaa.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            },\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:16\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:19\",\n                \"id\": 2,\n                \"mediaTitle\": \"bbb\",\n                \"mediaSrc\": \"bbb.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            }\n        ]\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/policyFile/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"policyFile",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 03:46:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "| **attribute** | **description** |\n| --- | --- |\n| title | 标题 |\n| content | 内容 |\n| education_level | 教育阶段分类  <br>0: 中职  <br>1: 本专科  <br>2: 研究生 |\n| status | 状态  <br>0：正常  <br>1：被删除 |"
+		},
+		{
+			"name": "通知公告",
+			"item": [
+				{
+					"name": "获取通知公告列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/announcement/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"announcement",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 0,\r\n    \"page\": {\r\n        \"current\": 1,\r\n        \"size\": 10,\r\n        \"orders\": [\r\n            {\r\n                \"column\": \"modify_time\",\r\n                \"asc\": false\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/announcement/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"announcement",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 04:10:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 2,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"createBy\": 2,\n            \"createTime\": \"2023-05-08T00:04:24\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-05-08T00:04:27\",\n            \"id\": 2,\n            \"title\": \"bbb\",\n            \"status\": 0\n        },\n        {\n            \"createBy\": 2,\n            \"createTime\": \"2023-05-08T00:04:15\",\n            \"modifyBy\": 2,\n            \"modifyTime\": \"2023-05-08T00:04:18\",\n            \"id\": 1,\n            \"title\": \"aaa\",\n            \"status\": 0\n        }\n    ],\n    \"status\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "根据id获取通知公告",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/api/announcement/getById/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"announcement",
+								"getById",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/announcement/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"announcement",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 04:14:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"createBy\": 2,\n        \"createTime\": \"2023-05-08T00:04:15\",\n        \"modifyBy\": 2,\n        \"modifyTime\": \"2023-05-08T00:04:18\",\n        \"id\": 1,\n        \"title\": \"aaa\",\n        \"content\": \"aaa\",\n        \"status\": 0,\n        \"medias\": [\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:03\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:07\",\n                \"id\": 1,\n                \"mediaTitle\": \"aaa\",\n                \"mediaSrc\": \"aaa.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            },\n            {\n                \"createBy\": 2,\n                \"createTime\": \"2023-05-07T22:23:16\",\n                \"modifyBy\": 2,\n                \"modifyTime\": \"2023-05-07T22:23:19\",\n                \"id\": 2,\n                \"mediaTitle\": \"bbb\",\n                \"mediaSrc\": \"bbb.jpg\",\n                \"mediaType\": 0,\n                \"status\": 0\n            }\n        ]\n    },\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8001/api/announcement/getById/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"announcement",
+										"getById",
+										"0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 04:15:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "| **attribute** | **description** |\n| --- | --- |\n| title | 标题 |\n| content | 内容 |\n| status | 状态  <br>0：正常  <br>1：被删除 |"
+		},
+		{
+			"name": "证书服务",
+			"item": [
+				{
+					"name": "证书查询",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"searchIdNumber\": \"000000000000000000\",\r\n    \"searchRealName\": \"张三\",\r\n    \"searchCertNumber\": \"111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/certificate/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"certificate",
+								"search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/certificate/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"certificate",
+										"search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 17:05:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"查询条件不能全为空\",\n    \"code\": 400,\n    \"status\": false\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"searchIdNumber\": \"000000000000000000\",\r\n    \"searchRealName\": \"张三\",\r\n    \"searchCertNumber\": \"111111\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/certificate/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"certificate",
+										"search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 21:25:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"total\": 1,\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"userId\": 2,\n            \"certId\": 1,\n            \"user\": {\n                \"id\": 2,\n                \"realName\": \"张三\"\n            },\n            \"cert\": {\n                \"id\": 1,\n                \"certEducationLevel\": 0,\n                \"certNumber\": \"111111\",\n                \"certIssueYear\": \"2023-01-01\",\n                \"image\": \"aaa.jpg\"\n            }\n        }\n    ],\n    \"status\": true\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"searchIdNumber\": \"000000000000000000\",\r\n    \"searchRealName\": \"张三\",\r\n    \"searchCertNumber\": \"222222\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8001/api/certificate/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8001",
+									"path": [
+										"api",
+										"certificate",
+										"search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 May 2023 21:27:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"请求的资源不存在\",\n    \"code\": 404,\n    \"status\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment\n\n| **attribute** | **description** |\n| --- | --- |\n| cert_education_level | 证书教育级别  <br>0: 中职  <br>1: 本专科  <br>2: 研究生 |\n| cert_number | 证书编号 |\n| cert_issue_year | 获奖学年 |\n| image | 证书图片地址 |\n| status | 状态  <br>0：正常  <br>1：被删除 |\n\nEndFragment"
+		}
+	]
+}

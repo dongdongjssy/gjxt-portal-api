@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gjxt.portal.api.mapper.GjxtClientUserCertMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="gjxt.portal.api.entity.GjxtClientUserCert">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="cert_id" property="certId"/>
+        <association property="user" column="user_id" javaType="gjxt.portal.api.entity.ClientUser" resultMap="ClientUserResultMap"/>
+        <association property="cert" column="cert_id" javaType="gjxt.portal.api.entity.GjxtCertificate" resultMap="CertificateResult"/>
+    </resultMap>
+
+    <resultMap id="CertificateResult" type="gjxt.portal.api.entity.GjxtCertificate">
+        <id column="b_id" property="id"/>
+        <result column="b_cert_education_level" property="certEducationLevel"/>
+        <result column="b_cert_number" property="certNumber"/>
+        <result column="b_cert_issue_year" property="certIssueYear"/>
+        <result column="b_image" property="image"/>
+    </resultMap>
+
+    <resultMap id="ClientUserResultMap" type="gjxt.portal.api.entity.ClientUser">
+        <id column="c_id" property="id"/>
+        <result column="c_real_name" property="realName"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="selectGjxtClientUserCert">
+        select tb.id,
+               tb.user_id,
+               tb.cert_id,
+               b.id                   as b_id,
+               b.cert_education_level as b_cert_education_level,
+               b.cert_issue_year      as b_cert_issue_year,
+               b.cert_number          as b_cert_number,
+               b.image                as b_image,
+               c.id                   as c_id,
+               c.real_name            as c_real_name
+        from gjxt_client_user_cert tb
+                 left join gjxt_certificate b on b.id = tb.cert_id
+                 left join client_user c on c.id = tb.user_id
+    </sql>
+
+    <select id="searchCertificate" resultMap="BaseResultMap" parameterType="gjxt.portal.api.entity.GjxtCertificateSearchCriteria">
+        <include refid="selectGjxtClientUserCert"/>
+        <where>
+            <if test="searchIdNumber != null">and c.id_number = #{searchIdNumber}</if>
+            <if test="searchRealName != null">and c.real_name = #{searchRealName}</if>
+            <if test="searchCertNumber != null">and b.cert_number = #{searchCertNumber}</if>
+        </where>
+    </select>
+
+</mapper>

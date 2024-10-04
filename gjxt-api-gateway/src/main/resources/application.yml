@@ -1,0 +1,40 @@
+# 开发环境配置
+server:
+  # 服务端口
+  port: 7001
+  servlet:
+    # 项目contextPath
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+
+# 日志配置
+logging:
+  level:
+    io.goose: info
+    org.springframework: WARN
+    org.spring.springboot.dao: debug
+
+# Spring配置
+spring:
+  application:
+    name: gjxt-api-gateway
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: dev
+
+# JWT
+jwt:
+  header: Authorization
+  prefix: "Bearer "
+  secret: mySecret
+  accessTokenHeader: "access_token"
+  refreshTokenHeader: "refresh_token"
+  accessTokenExpiration: 712800
+  refreshTokenExpiration: 712800

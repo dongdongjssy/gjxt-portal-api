@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="gjxt.portal.sys.mapper.SysRoleMapper">
+	
+	<!-- 查询用户创建的角色ID列表 -->
+	<select id="queryRoleIdList" resultType="long">
+		select role_id from sys_role where create_id = #{createId} 
+	</select>
+	<select id="queryRoleList" resultType="gjxt.portal.sys.entity.SysRole">
+		SELECT
+			r.role_id roleId,
+			r.role_name roleName,
+			r.user_number userNumber,
+			r.description,
+			r.remark 
+		FROM
+			sys_role r
+			INNER JOIN sys_user_role ur ON ur.role_id = r.role_id 
+		WHERE
+			ur.user_id = #{userId} 
+	</select>
+	<select id="queryRoleIdListByNames" resultType="long">
+		select role_id from sys_role where role_name in 
+	        <foreach item="name" collection="roleNames" open="(" separator="," close=")" index="index">	           		 
+    		     #{name}
+	       	</foreach>
+	</select>
+	
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gjxt.portal.api.mapper.GjxtMessageBoardMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="MessageBoardMap" type="gjxt.portal.api.entity.GjxtMessageBoard">
+        <id column="id" property="id"/>
+        <result column="content" property="content"/>
+        <result column="location" property="location"/>
+        <result column="publish_mode" property="publishMode"/>
+        <result column="publish_status" property="publishStatus"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_by" property="modifyBy"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="real_name" property="realName"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="selectGjxtMessageBoardVo">
+        select m.id,
+               m.content,
+               m.location,
+               m.publish_mode,
+               m.publish_status,
+               m.create_by,
+               m.create_time,
+               m.modify_by,
+               m.modify_time,
+               u.real_name,
+               u.avatar
+        from gjxt_message_board m
+                 left join client_user u on u.id = m.create_by
+    </sql>
+
+    <select id="selectMessageBoards" resultMap="MessageBoardMap">
+        <include refid="selectGjxtMessageBoardVo"/>
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectMessageBoardById" parameterType="Long" resultMap="MessageBoardMap">
+        <include refid="selectGjxtMessageBoardVo"/>
+        where m.id = #{id}
+    </select>
+
+</mapper>

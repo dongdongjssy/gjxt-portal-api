@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gjxt.portal.api.mapper.GjxtSecondaryVocationalScholarshipMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="gjxt.portal.api.entity.GjxtSecondaryVocationalScholarship">
+        <id column="id" property="id" />
+        <result column="student_id" property="studentId" />
+        <result column="identity_id" property="identityId" />
+        <result column="committee_results" property="committeeResults" />
+        <result column="group_results" property="groupResults" />
+        <result column="expert_result" property="expertResult" />
+        <result column="expert_excellent" property="expertExcellent" />
+        <result column="double_ten_stu" property="doubleTenStu" />
+        <result column="class_rank" property="classRank" />
+        <result column="test_rank" property="testRank" />
+        <result column="group_num" property="groupNum" />
+        <result column="group_name" property="groupName" />
+        <result column="school_id" property="schoolId" />
+        <result column="school_name" property="schoolName" />
+        <result column="provice" property="provice" />
+        <result column="city" property="city" />
+        <result column="county" property="county" />
+        <result column="gender" property="gender" />
+        <result column="birth" property="birth" />
+        <result column="political" property="political" />
+        <result column="nation" property="nation" />
+        <result column="length_school" property="lengthSchool" />
+        <result column="stu_type" property="stuType" />
+        <result column="phone" property="phone" />
+        <result column="department" property="department" />
+        <result column="speciality" property="speciality" />
+        <result column="stu_year" property="stuYear" />
+        <result column="cert_number" property="certNumber" />
+        <result column="entry_year" property="entryYear" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="selectGjxtSecondaryVocationalScholarshipVo">
+select
+        id, student_id, identity_id, committee_results, group_results, expert_result, expert_excellent, double_ten_stu, class_rank, test_rank, group_num, group_name, school_id, school_name, provice, city, county, gender, birth, political, nation, length_school, stu_type, phone, department, speciality, stu_year, cert_number, entry_year
+from gjxt_secondary_vocational_scholarship
+
+    </sql>
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gjxt.portal.api.mapper.AdministrativeAreaMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="gjxt.portal.api.entity.AdministrativeArea">
+        <id column="id" property="id" />
+        <result column="types" property="types" />
+        <result column="name" property="name" />
+        <result column="pre_id" property="preId" />
+        <result column="pre_name" property="preName" />
+        <result column="school_code" property="schoolCode" />
+        <result column="full_path" property="fullPath" />
+        <result column="ancestral_list" property="ancestralList" />
+        <result column="full_name" property="fullName" />
+        <result column="manage_full_path" property="manageFullPath" />
+        <result column="last_level" property="lastLevel" />
+        <result column="level" property="level" />
+        <result column="prop" property="prop" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="selectAdministrativeAreaVo">
+select
+        id, types, name, pre_id, pre_name, school_code, full_path, ancestral_list, full_name, manage_full_path, last_level, level, prop
+from administrative_area
+
+    </sql>
+
+</mapper>
